@@ -1,3 +1,4 @@
+import os
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -10,7 +11,7 @@ from dataframes import *
 DEFAULT = '04LG004'
 
 # setup and use user defined styles
-external_stylesheets = ['styles.css']
+external_stylesheets = ['./assets/styles.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 server = app.server
