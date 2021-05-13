@@ -9,11 +9,11 @@ REALTIME_FLOW_FILES = os.listdir('./data/realtime/flow')
 REALTIME_LEVEL_FILES = os.listdir('./data/realtime/level')
 
 # dataframe of all stations
-df_stations = pd.read_csv(r'./data/stations/Stations.csv').set_index('StationId')
+df_stations = pd.read_csv('./data/stations/Stations.csv').set_index('StationId')
 
 # # dataframe of all known historical flows
 df_historical_flows = pd.read_csv('./data/historical/average_historical_flows.csv')
-dfc = df_historical_flows.copy()
+dfc = df_historical_flows.copy()     
 df_historical_flows['Year'] = 2020
 dfc['Year'] = 2021
 df_historical_flows = pd.concat([df_historical_flows,dfc])
@@ -47,6 +47,7 @@ df_levels['Date'] = pd.to_datetime(df_levels[['Year','Month','Day']])
 #     df = pd.read_csv(file,skiprows=4,converters={'Date':pd.to_datetime})
 #     df['ID'] = _id
 #     return df
+
 # dataframe of all stations
 # df_flows = pd.concat([clean_df(fr'./data/realtime/flow/{file_name}') for file_name in REALTIME_FLOW_FILES])
 # df_flows.to_csv('flows.csv',index=False)

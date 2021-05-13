@@ -11,14 +11,35 @@ from dataframes import *
 DEFAULT = '04LG004'
 
 # setup and use user defined styles
-external_stylesheets = ['./assets/styles.css']
+external_stylesheets = [
+    './assets/styles.css',
+    {
+    'href': 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+    'rel': 'stylesheet',
+    'integrity': 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf',
+    'crossorigin': 'anonymous'
+    }
+]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+# this is needed for the Heroku deployment
 server = app.server
 
 # instantiate the layout using semantic HTML components provided by dash
 app.layout = html.Div(children=[
-    html.H2(children='Frank Basham | ENG-02/03 Exam'),
+    html.Div(id='head',children=[
+        html.H2(children='Water Quantity Data'),
+        html.Div(children=[
+            html.Div(children=[
+                html.I(className="fas fa-user"),
+                html.Span(' Frank Basham')
+            ]),
+            html.Div(children=[
+                html.I(className="fab fa-github"),
+                html.A(' GitHub',href='https://github.com/Fbasham/ECCC_ENG',target='_blank'),
+            ])
+        ])
+    ]),
 
     html.H3(id='stationName',children=f"STATION: {df_stations.at[DEFAULT,'StationName']}"),
 
