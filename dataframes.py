@@ -3,10 +3,10 @@ import os
 import csv
 
 # get a list of all flow files
-HISTORICAL_FLOW_FILES = os.listdir('data/flow')
-HISTORICAL_LEVEL_FILES = os.listdir('data/level')
-REALTIME_FLOW_FILES = os.listdir('data/realtime/flow')
-REALTIME_LEVEL_FILES = os.listdir('data/realtime/level')
+HISTORICAL_FLOW_FILES = os.listdir('./data/flow')
+HISTORICAL_LEVEL_FILES = os.listdir('./data/level')
+REALTIME_FLOW_FILES = os.listdir('./data/realtime/flow')
+REALTIME_LEVEL_FILES = os.listdir('./data/realtime/level')
 
 # dataframe of all stations
 df_stations = pd.read_csv(r'./data/stations/Stations.csv').set_index('StationId')
